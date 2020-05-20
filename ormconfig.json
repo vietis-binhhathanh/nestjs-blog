@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": "5432",
+  "username": "postgres",
+  "password": "Binh2602pg",
+  "database": "nestjs_blog",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["./dist/**/*.entity.js"]
+}
