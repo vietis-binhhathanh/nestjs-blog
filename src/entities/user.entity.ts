@@ -3,7 +3,6 @@ import { BeforeInsert, Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToM
 import { IsEmail } from 'class-validator';
 import { classToPlain, Exclude } from 'class-transformer';
 import * as bcrypt from 'bcryptjs';
-import { User } from '../auth/user.decorator';
 import { ArticleEntity } from './article.entity';
 
 @Entity('users')
