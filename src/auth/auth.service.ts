@@ -3,7 +3,6 @@ import { LoginDTO, RegisterDTO } from '../models/user.model';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { Repository } from 'typeorm';
-import { JwtService } from '@nestjs/jwt';
 import * as jwt from 'jsonwebtoken';
 
 @Injectable()
@@ -11,7 +10,6 @@ export class AuthService {
   constructor(
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>,
-    private jwtService: JwtService,
   ) {
   }
 
@@ -45,7 +43,6 @@ export class AuthService {
 
       return { user: { ...user.toJSON(), token } };
     } catch (error) {
-      console.log('wtf man ???');
       throw new UnauthorizedException('Invalid credentials');
     }
   }
