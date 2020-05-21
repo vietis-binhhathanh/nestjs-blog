@@ -1,7 +1,8 @@
 import { AbstractBaseEntity } from './abstract-base-entity';
-import { BeforeInsert, Column, Entity, JoinColumn, ManyToMany, ManyToOne, RelationCount } from 'typeorm';
+import { BeforeInsert, Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, RelationCount } from 'typeorm';
 import * as slugify from 'slug';
 import { UserEntity } from './user.entity';
+import { classToPlain } from 'class-transformer';
 
 @Entity('articles')
 export class ArticleEntity extends AbstractBaseEntity {
@@ -22,7 +23,7 @@ export class ArticleEntity extends AbstractBaseEntity {
     user => user.favorites,
     { eager: true },
   )
-  @JoinColumn()
+  @JoinTable()
   favoritedBy: UserEntity[];
 
   @RelationCount((article: ArticleEntity) => article.favoritedBy)
