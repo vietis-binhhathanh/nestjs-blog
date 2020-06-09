@@ -38,7 +38,7 @@ export class UserEntity extends AbstractBaseEntity {
   followee: UserEntity[];
 
   @OneToMany(
-    type => UserEntity,
+    type => ArticleEntity,
     article => article.author,
   )
   articles: ArticleEntity[];

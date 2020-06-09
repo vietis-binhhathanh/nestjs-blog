@@ -10,12 +10,12 @@ export class ArticleController {
   constructor(private articleService: ArticleService) {
   }
 
-  @Get('/:slug')
-  @UseGuards(AuthGuard())
-  async findBySlug(@Param('slug') slug: string, @User() user: UserEntity) {
-    const article = await this.articleService.findBySlug(slug);
-    return { article: article.toArticle() };
-  }
+  // @Get('/:slug')
+  // @UseGuards(AuthGuard())
+  // async findBySlug(@Param('slug') slug: string, @User() user: UserEntity) {
+  //   const article = await this.articleService.findBySlug(slug);
+  //   return { article: article.toArticle() };
+  // }
 
   @Post('/:slug')
   @UseGuards(AuthGuard())
